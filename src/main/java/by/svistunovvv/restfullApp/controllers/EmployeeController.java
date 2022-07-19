@@ -28,10 +28,10 @@ public class EmployeeController {
     @GetMapping("/employees")
     CollectionModel<EntityModel<Employee>> getAll() {
 
-        List<EntityModel<Employee>> employees = repository.findAll().stream()
+        List<EntityModel<Employee>> employees = repository.findAll().stream() //
                 .map(assembler::toModel).collect(Collectors.toList());
 
-        return CollectionModel.of(employees,
+        return CollectionModel.of(employees,  //
                 linkTo(methodOn(EmployeeController.class).getAll()).withSelfRel());
     }
 
@@ -47,7 +47,7 @@ public class EmployeeController {
 
     @GetMapping("/employees/{id}")
     EntityModel<Employee> getEmployee(@PathVariable Long id) {
-        Employee employee = repository.findById(id)
+        Employee employee = repository.findById(id) //
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
 
         return assembler.toModel(employee);
