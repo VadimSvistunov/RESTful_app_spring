@@ -1,3 +1,3 @@
-# RESTful_app_spring
+# RESTfull_app_spring
 
 Simple REstfull app on Spring
