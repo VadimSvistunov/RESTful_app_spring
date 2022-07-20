@@ -2,6 +2,7 @@ package by.svistunovvv.restfullApp.controllers;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
+import by.svistunovvv.restfullApp.controllers.assemblers.EmployeerModelAssembler;
 import by.svistunovvv.restfullApp.domain.Employee;
 import by.svistunovvv.restfullApp.exceptions.EmployeeNotFoundException;
 import by.svistunovvv.restfullApp.repository.EmployeeRepository;
@@ -26,7 +27,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees")
-    CollectionModel<EntityModel<Employee>> getAll() {
+    public CollectionModel<EntityModel<Employee>> getAll() {
 
         List<EntityModel<Employee>> employees = repository.findAll().stream() //
                 .map(assembler::toModel).collect(Collectors.toList());
@@ -46,7 +47,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{id}")
-    EntityModel<Employee> getEmployee(@PathVariable Long id) {
+    public EntityModel<Employee> getEmployee(@PathVariable Long id) {
         Employee employee = repository.findById(id) //
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
 

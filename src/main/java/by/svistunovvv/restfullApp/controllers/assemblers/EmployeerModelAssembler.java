@@ -1,5 +1,6 @@
-package by.svistunovvv.restfullApp.controllers;
+package by.svistunovvv.restfullApp.controllers.assemblers;
 
+import by.svistunovvv.restfullApp.controllers.EmployeeController;
 import by.svistunovvv.restfullApp.domain.Employee;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
